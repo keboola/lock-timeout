@@ -9,11 +9,11 @@ for ($i = 0; $i < 10000; $i++) {
     $b = microtime(true);
     $stmt = $pdo->query("SELECT `bucket`, SUM(t.`dataSizeBytes`) AS `dataSizeBytes` 
     FROM `b_tables` t 
-    WHERE t.`bucket` = 'druhy'
+    WHERE t.`bucket` = 'prvni'
     GROUP BY t.`bucket` 
     ");
     $data = $stmt->fetchAll()[0];
-    $pdo->query("UPDATE `b_bucket` SET `dataSizeBytes` = " . $data['dataSizeBytes'] . " WHERE `name` = 'druhy';");
+    $pdo->query("UPDATE `b_bucket` SET `dataSizeBytes` = " . $data['dataSizeBytes'] . " WHERE `name` = 'prvni';");
     $e = microtime(true);
     $cnt = ($e - $b);
     if ($cnt > $max) {
