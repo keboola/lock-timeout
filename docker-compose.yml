@@ -1,7 +1,7 @@
-version: '2'
+version: '3'
 
 services:
-  dev:
+  dev: &dev
     build: .
     working_dir: /code
     command: /bin/bash
@@ -9,7 +9,13 @@ services:
      - .:/code
     links:
       - database
-  database: 
+  run:
+    <<: *dev
+    command: php run.php
+  change:
+    <<: *dev
+    command: php change.php
+  database:
     image: mysql:5.7
     tty: true
     stdin_open: true
