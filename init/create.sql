@@ -34,9 +34,9 @@ CREATE TABLE `b_bucket` (
   `dataSizeBytes` int(11)
 ) ENGINE=InnoDB;
 
-INSERT INTO `b_bucket` (`name`, `project`) VALUES ('prvni', 'prj1', 0);
-INSERT INTO `b_bucket` (`name`, `project`) VALUES ('druhy', 'prj1', 0);
-INSERT INTO `b_bucket` (`name`, `project`) VALUES ('treti', 'prj2', 0);
+INSERT INTO `b_bucket` (`name`, `project`, `dataSizeBytes`) VALUES ('prvni', 'prj1', 0);
+INSERT INTO `b_bucket` (`name`, `project`, `dataSizeBytes`) VALUES ('druhy', 'prj1', 0);
+INSERT INTO `b_bucket` (`name`, `project`, `dataSizeBytes`) VALUES ('treti', 'prj2', 0);
 
 CREATE TABLE `b_project` (
 	`name` varchar(200),
