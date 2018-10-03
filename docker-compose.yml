@@ -1,11 +1,18 @@
 version: '2'
 
 services:
+  dev:
+    build: .
+    working_dir: /code
+    command: /bin/bash
+    volumes:
+     - .:/code
+    links:
+      - database
   database: 
     image: mysql:5.7
     tty: true
     stdin_open: true
-    network_mode: bridge
     volumes:
       - ./data/:/var/lib/mysql/
       - ./init/:/docker-entrypoint-initdb.d/
